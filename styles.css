@@ -1,0 +1,509 @@
+<style>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+}
+
+h1, h2, h3 {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #444;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.header p {
+    font-size: 1.2rem;
+}
+
+/* Features Section */
+.features-section {
+    margin: 40px 0;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.feature-item {
+    background-color: #555;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+.feature-item h3 {
+    color: #fff;
+}
+
+.feature-item p {
+    color: #ccc;
+}
+
+/* Timeline Section */
+.timeline-section {
+    margin: 40px 0;
+}
+
+.timeline {
+    position: relative;
+    margin: 40px 0;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 20px 0;
+    width: calc(50% - 40px);
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: calc(100% - 20px);
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.left::before {
+    left: auto;
+    right: calc(100% - 20px);
+}
+
+.timeline-content {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+/* PGP Section */
+.pgp-section {
+    margin: 40px 0;
+}
+
+.pgp-card {
+    background-color: #555;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+
+.pgp-card h3 {
+    margin-bottom: 10px;
+}
+
+.pgp-content {
+    background-color: #222;
+    color: #0f0;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+.pgp-toggle {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #00ccff;
+    border: none;
+    border-radius: 5px;
+    color: #222;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pgp-toggle:hover {
+    background-color: #0099cc;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #444;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.staff-section {
+    margin: 40px 0;
+    background: linear-gradient(180deg, #2f2f2f, #444);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.staff-card {
+    background-color: #555;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Role Badges with Gradient Backgrounds */
+.staff-role {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #222;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+.staff-role.ceo {
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+}
+
+.staff-role.moderator {
+    background: linear-gradient(135deg, #00ccff, #0099cc);
+}
+
+.staff-role.support {
+    background: linear-gradient(135deg, #32cd32, #228b22);
+}
+
+.staff-role.safety {
+    background: linear-gradient(135deg, #ff6347, #ff4500);
+}
+
+.staff-role.aussie {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+}
+
+/* Text and Layout */
+.staff-card h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.staff-card ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.staff-card p, .staff-card ul {
+    color: #ccc;
+}
+
+.staff-card p {
+    margin-bottom: 10px;
+}
+/* Link Section Styles */
+.links-section {
+    margin: 40px 0;
+    background: linear-gradient(180deg, #2f2f2f, #444);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.links-section h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.link-card {
+    perspective: 1000px;
+    position: relative;
+    width: 100%;
+    height: 150px;
+}
+
+.link-card .link-front,
+.link-card .link-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.link-card .link-front {
+    background-color: #555555;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.link-card .link-back {
+    background-color: #333333;
+    color: #fff;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    padding: 10px; /* Added padding to prevent URL overflow */
+    text-align: center; /* Align text centrally */
+}
+
+.link-card:hover .link-front {
+    transform: rotateY(180deg);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.6);
+}
+
+.link-card:hover .link-back {
+    transform: rotateY(0deg);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.6);
+}
+
+.link-back span {
+    margin-bottom: 10px;
+    font-size: 0.85rem; /* Reduced font size for URLs */
+    word-wrap: break-word; /* Ensure long URLs break properly */
+    overflow-wrap: break-word; /* Support for older browsers */
+    max-width: 100%; /* Prevent overflow beyond the card */
+}
+
+.copy-button {
+    background-color: #00ccff;
+    color: #222;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #0099cc;
+}
+
+/* Custom CSS for the Mind Map Section */
+.mindmap-container {
+    background-color: #7a7979;  /* Lighter dark gray background */
+    color: #ffffff;  /* White text for contrast */
+    padding: 30px;  /* Add padding to space out content */
+    max-width: 1400px;  /* Maximum width for larger screens */
+    margin: 0 auto;  /* Center the container */
+}
+
+.mindmap-container iframe {
+    width: 100%;  /* Make the iframe take up 100% of the container's width */
+    height: 800px;  /* Set a fixed height */
+    border: none;  /* Remove iframe border */
+}
+/* Custom CSS for the Mind Map Section */
+.mindmap-container {
+    background-color: #7a7979;  /* Lighter dark gray background */
+    color: #ffffff;  /* White text for contrast */
+    padding: 30px;  /* Add padding to space out content */
+    max-width: 1400px;  /* Wider container */
+    margin: 0 auto;  /* Center the container */
+    text-align: center;  /* Center the content */
+}
+
+/* Buttons Container (ensure buttons are below the mind map and centered) */
+.button-container {
+    margin-top: 30px;  /* Adds space between mindmap and buttons */
+    text-align: center;  /* Center the buttons */
+}
+
+/* Show Key Button Style */
+.show-key-btn, .full-mindmap-btn {
+    background-color: #4CAF50;  /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;  /* Space between buttons */
+}
+
+.show-key-btn:hover, .full-mindmap-btn:hover {
+    background-color: #45a049;  /* Darker green on hover */
+}
+
+/* Ensuring the buttons don't appear inside the iframe */
+iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+/* modal for pics */
+    /* Gallery Section Styles */
+.image-gallery-section {
+    margin: 40px 0;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #2f2f2f, #444);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.image-gallery-section h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+/* Individual Gallery Items */
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Full-Screen Image Modal */
+.image-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+}
+
+.image-modal.visible {
+    display: flex; /* Show the modal */
+}
+
+.image-modal.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+</style>
+
